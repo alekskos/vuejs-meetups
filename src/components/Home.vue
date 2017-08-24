@@ -2,10 +2,10 @@
   <v-container>
     <v-layout row wrap>
       <v-flex xs12 sm6 class="text-xs-center text-sm-right">
-        <v-btn large to="/meetups" class="info">Explore Meetups</v-btn>
+        <v-btn large to="/meetups" class="success">Explore Meetups</v-btn>
       </v-flex>
       <v-flex xs12 sm6 class="text-xs-center text-sm-left">
-        <v-btn large to="/meetup/new" class="info">Organize Meetup</v-btn>
+        <v-btn large to="/meetup/new" class="accent">Organize Meetup</v-btn>
       </v-flex>
     </v-layout>
     <v-layout>
@@ -26,9 +26,9 @@
             :src="meetup.imageUrl"
             :key="meetup.id"
             @click="onLoadMeetup(meetup.id)">
-            <div class="title">
+            <h5 class="title">
               {{ meetup.title }}
-            </div>
+            </h5>
           </v-carousel-item>
         </v-carousel>
       </v-flex>
@@ -65,7 +65,6 @@
     bottom: 50px;
     background-color: rgba(0,0,0,0.5);
     color: white;
-    font-size: 2em;
     padding: 20px;
   }
 </style>

@@ -25,7 +25,12 @@ new Vue({
       authDomain: 'vuejs-451f7.firebaseapp.com',
       databaseURL: 'https://vuejs-451f7.firebaseio.com',
       projectId: 'vuejs-451f7',
-      storageBucket: 'vuejs-451f7.appspot.com'
+      storageBucket: ''
+    })
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.$store.dispatch('autoSignIn', user)
+      }
     })
     this.$store.dispatch('loadMeetups')
   }
