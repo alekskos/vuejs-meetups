@@ -6,12 +6,14 @@ import router from './router'
 import { store } from './store'
 import DateFilter from './filters/date'
 import AlertCmp from './components/Shared/Alert'
+import EditMeetupDetailsDialog from './components/Meetup/Edit/EditMeetupDetailsDiolog.vue'
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false
 
 Vue.filter('date', DateFilter)
 Vue.component('app-alert', AlertCmp)
+Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog)
 
 /* eslint-disable no-new */
 new Vue({
@@ -25,7 +27,7 @@ new Vue({
       authDomain: 'vuejs-451f7.firebaseapp.com',
       databaseURL: 'https://vuejs-451f7.firebaseio.com',
       projectId: 'vuejs-451f7',
-      storageBucket: ''
+      storageBucket: 'gs://vuejs-451f7.appspot.com'
     })
     firebase.auth().onAuthStateChanged(user => {
       if (user) {

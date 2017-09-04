@@ -10,18 +10,18 @@ export const store = new Vuex.Store({
       {
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/30/View_on_St._Petersburg%2C_Russia.jpg',
         id: '1',
-        title: 'Meetup in St.Petersburg',
+        title: 'Meet up in St.Petersburg',
         date: new Date(),
-        location: 'St.Peterburg',
-        description: 'It\'ll be an awesome meetup!'
+        location: 'St.Petersburg',
+        description: 'It\'ll be an awesome meet up!'
       },
       {
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Paris_vue_d%27ensemble_tour_Eiffel.jpg',
         id: '2',
-        title: 'Meetup in Paris',
+        title: 'Meet up in Paris',
         date: new Date(),
         location: 'Paris',
-        description: 'It\'ll be an awesome meetup!'
+        description: 'It\'ll be an awesome meet up!'
       }
     ],
     user: null,
@@ -34,6 +34,20 @@ export const store = new Vuex.Store({
     },
     createMeetup (state, payload) {
       state.loadedMeetups.push(payload)
+    },
+    updateMeetup (state, payload) {
+      const meetup = state.loadedMeetups.find(meetup => {
+        return meetup.id === payload.id
+      })
+      if (payload.title) {
+        meetup.title = payload.title
+      }
+      if (payload.description) {
+        meetup.description = payload.description
+      }
+      if (payload.date) {
+        meetup.date = payload.date
+      }
     },
     setUser (state, payload) {
       state.user = payload
@@ -60,6 +74,7 @@ export const store = new Vuex.Store({
               id: key,
               title: obj[key].title,
               description: obj[key].description,
+              location: obj[key].location,
               imageUrl: obj[key].imageUrl,
               date: obj[key].date,
               creatorId: obj[key].creatorId
@@ -79,21 +94,57 @@ export const store = new Vuex.Store({
       const meetup = {
         title: payload.title,
         location: payload.location,
-        imageUrl: payload.imageUrl,
         description: payload.description,
         date: payload.date.toISOString(),
         creatorId: getters.user.id
       }
+      let imageUrl
+      let key
       firebase.database().ref('meetups').push(meetup)
         .then(data => {
-          const key = data.key
+          key = data.key
+          return key
+        })
+        .then(key => {
+          const filename = payload.image.name
+          const ext = filename.slice(filename.lastIndexOf('.'))
+          return firebase.storage().ref(`meetups/${key}.${ext}`).put(payload.image)
+        })
+        .then(fileData => {
+          imageUrl = fileData.metadata.downloadURLs[0]
+          return firebase.database().ref('meetups').child(key).update({imageUrl: imageUrl})
+        })
+        .then(() => {
           commit('createMeetup', {
             ...meetup,
+            imageUrl: imageUrl,
             id: key
           })
         })
         .catch(error => {
           console.log(error)
+        })
+    },
+    updateMeetupData ({commit}, payload) {
+      commit('setLoading', true)
+      const updateObj = {}
+      if (payload.title) {
+        updateObj.title = payload.title
+      }
+      if (payload.description) {
+        updateObj.description = payload.description
+      }
+      if (payload.date) {
+        updateObj.date = payload.date
+      }
+      firebase.database().ref('meetups').child(payload.id).update(updateObj)
+        .then(() => {
+          commit('setLoading', false)
+          commit('updateMeetup', payload)
+        })
+        .catch(error => {
+          console.log(error)
+          commit('setLoading', false)
         })
     },
     signUserUp ({commit}, payload) {

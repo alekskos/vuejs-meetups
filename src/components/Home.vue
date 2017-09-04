@@ -62,9 +62,12 @@
 <style scoped>
   .title {
     position: absolute;
-    bottom: 50px;
+    left: 0;
+    bottom: 30px;
     background-color: rgba(0,0,0,0.5);
     color: white;
     padding: 20px;
+    width: 100%;
+    text-align: center;
   }
 </style>
