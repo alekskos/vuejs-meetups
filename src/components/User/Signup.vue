@@ -15,10 +15,11 @@
                   <v-flex xs12>
                     <v-text-field
                       name="email"
-                      label="Mail"
+                      label="Почта"
                       id="email"
                       v-model="email"
                       type="email"
+                      autofocus
                       required></v-text-field>
                   </v-flex>
                 </v-layout>
@@ -26,7 +27,7 @@
                   <v-flex xs12>
                     <v-text-field
                       name="password"
-                      label="Password"
+                      label="Пароль"
                       id="password"
                       v-model="password"
                       type="password"
@@ -37,7 +38,7 @@
                   <v-flex xs12>
                     <v-text-field
                       name="confirmPassword"
-                      label="Confirm Password"
+                      label="Подтверждение пароля"
                       id="confirmPassword"
                       v-model="confirmPassword"
                       type="password"
@@ -50,7 +51,7 @@
                       type="submit"
                       :disabled="loading"
                       :loading="loading">
-                      Sign Up
+                      Регистрация
                       <span slot="loader" class="custom-loader">
                         <v-icon light>cached</v-icon>
                       </span>
@@ -77,7 +78,7 @@
     },
     computed: {
       comparePasswords () {
-        return this.password !== this.confirmPassword ? 'Password do not match' : ''
+        return this.password !== this.confirmPassword ? 'Пароли не совпадают!' : ''
       },
       user () {
         return this.$store.getters.user

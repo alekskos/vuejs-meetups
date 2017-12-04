@@ -15,10 +15,11 @@
                   <v-flex xs12>
                     <v-text-field
                       name="email"
-                      label="Mail"
+                      label="Почта"
                       id="email"
                       v-model="email"
                       type="email"
+                      autofocus
                       required></v-text-field>
                   </v-flex>
                 </v-layout>
@@ -26,7 +27,7 @@
                   <v-flex xs12>
                     <v-text-field
                       name="password"
-                      label="Password"
+                      label="Пароль"
                       id="password"
                       v-model="password"
                       type="password"
@@ -39,7 +40,7 @@
                       type="submit"
                       :disabled="loading"
                       :loading="loading">
-                      Sign In
+                      Войти
                       <span slot="loader" class="custom-loader">
                         <v-icon light>cached</v-icon>
                       </span>

@@ -16,7 +16,7 @@
       :key="meetup.id"
       class="mb-2"
       v-if="!loading">
-      <v-flex xs12 sm10 md8 offset-sm1 offset-md2>
+      <v-flex xs12 md10 offset-md1>
         <v-card class="success">
           <v-container fluid>
             <v-layout row>

@@ -63,11 +63,13 @@
               <h4>Choose Date & Time</h4>
             </v-flex>
           </v-layout>
-          <v-layout row>
-            <v-flex xs12 sm6 class="mr-5">
+          <v-layout row wrap class="md-5">
+            <v-flex md12 lg8>
               <v-date-picker v-model="date"></v-date-picker>
             </v-flex>
-            <v-flex xs12 sm6>
+          </v-layout>
+          <v-layout row wrap>
+            <v-flex md12 lg8>
               <v-time-picker v-model="time" format="24hr"></v-time-picker>
             </v-flex>
           </v-layout>
@@ -97,6 +99,14 @@
         date: new Date(),
         time: new Date(),
         image: null
+      }
+    },
+    props: {
+      date: {
+        type: Number
+      },
+      time: {
+        type: Number
       }
     },
     computed: {
@@ -145,7 +155,7 @@
         const files = event.target.files
         let filename = files[0].name
         if (filename.lastIndexOf('.') <= 0) {
-          return alert('Please add a valid file!')
+          return alert('Пожалуйста, добавьте правильный файл!')
         }
         const fileReader = new FileReader()
         fileReader.addEventListener('load', () => {

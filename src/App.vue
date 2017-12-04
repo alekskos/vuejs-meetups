@@ -1,6 +1,9 @@
 <template>
   <v-app>
-    <v-navigation-drawer temporary v-model="sideNav">
+    <v-navigation-drawer
+      temporary
+      absolute
+      v-model="sideNav">
       <v-list>
         <v-list-tile
           v-for="item in menuItems"
@@ -17,7 +20,7 @@
           <v-list-tile-action>
             <v-icon>exit_to_app</v-icon>
           </v-list-tile-action>
-          <v-list-tile-content>Logout</v-list-tile-content>
+          <v-list-tile-content>Выйти</v-list-tile-content>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -27,7 +30,10 @@
         @click.stop="sideNav = !sideNav"></v-toolbar-side-icon>
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor: pointer">
-          Vue Meet ups
+          <picture title="На главную">
+            <source srcset="static/logo_MU.svg" type="image/svg+xml">
+            <img srcset="static/logo.png_MU 1x static/logo_MU@2.png 2x" alt="Логотип">
+          </picture>
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
@@ -45,7 +51,7 @@
           v-if="userIsAuthenficated"
           @click="onLogout">
           <v-icon left dark>exit_to_app</v-icon>
-          Logout
+          Выйти
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -65,14 +71,14 @@
     computed: {
       menuItems () {
         let menuItems = [
-          {icon: 'person_add', title: 'Sign up', link: '/signup'},
-          {icon: 'lock_open', title: 'Sign in', link: '/signin'}
+          {icon: 'person_add', title: 'Регистрация', link: '/signup', alt: 'Регистрация на сайте'},
+          {icon: 'lock_open', title: 'Войти', link: '/signin'}
         ]
         if (this.userIsAuthenficated) {
           menuItems = [
-            {icon: 'supervisor_account', title: 'View Meetups', link: '/meetups'},
-            {icon: 'room', title: 'Organize Meetup', link: '/meetup/new'},
-            {icon: 'person', title: 'Profile', link: '/profile'}
+            {icon: 'supervisor_account', title: 'Просмотреть', link: '/meetups'},
+            {icon: 'room', title: 'Организовать', link: '/meetup/new'},
+            {icon: 'person', title: 'Профиль', link: '/profile'}
           ]
         }
         return menuItems
@@ -91,4 +97,8 @@
 
 <style lang="stylus">
   @import './stylus/main'
+  picture img {
+    width: 3em;
+    margin-top: 0.35em;
+  }
 </style>

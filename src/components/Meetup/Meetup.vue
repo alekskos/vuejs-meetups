@@ -13,7 +13,7 @@
       <v-flex xs12>
         <v-card>
           <v-card-title>
-            <h5 class="primary--text">{{ meetup.title }}</h5>
+            <h3 class="headline primary--text">{{ meetup.title }}</h3>
             <template v-if="userIsCreator">
               <v-spacer></v-spacer>
               <app-edit-meetup-details-dialog :meetup="meetup"></app-edit-meetup-details-dialog>
@@ -24,14 +24,14 @@
             height="50vh"
           ></v-card-media>
           <v-card-text>
-            <h6 class="warning--text">
+            <h5 class="title warning--text">
               {{ meetup.date | date }} &mdash; {{ meetup.location }}
-            </h6>
-            <div>{{ meetup.description }}</div>
+            </h5>
+            <p class="body-1 mt-3">{{ meetup.description }}</p>
           </v-card-text>
-          <v-card-actions>
+          <v-card-actions v-if="!userIsCreator">
             <v-spacer></v-spacer>
-            <v-btn class="primary">Register</v-btn>
+            <v-btn class="error">Регистрация</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>

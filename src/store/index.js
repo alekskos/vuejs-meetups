@@ -134,6 +134,9 @@ export const store = new Vuex.Store({
       if (payload.description) {
         updateObj.description = payload.description
       }
+      if (payload.location) {
+        updateObj.location = payload.location
+      }
       if (payload.date) {
         updateObj.date = payload.date
       }
