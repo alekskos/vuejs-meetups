@@ -31,8 +31,8 @@
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor: pointer">
           <picture title="На главную">
-            <source srcset="static/logo_MU.svg" type="image/svg+xml">
-            <img srcset="static/logo.png_MU 1x static/logo_MU@2.png 2x" alt="Логотип">
+            <source srcset="../static/logo_MU.svg" type="image/svg+xml">
+            <img srcset="../static/logo_MU.png 1x ../static/logo_MU@2.png 2x" alt="Логотип">
           </picture>
         </router-link>
       </v-toolbar-title>
