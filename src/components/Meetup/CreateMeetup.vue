@@ -2,7 +2,7 @@
   <v-container>
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
-        <h3>Create new Meetup</h3>
+        <h3>Добавить новую встречу</h3>
       </v-flex>
     </v-layout>
     <v-layout>
@@ -12,7 +12,7 @@
             <v-flex>
               <v-text-field
                 name="title"
-                label="Title"
+                label="Название"
                 id="title"
                 v-model="title"
                 required>
@@ -23,7 +23,7 @@
             <v-flex>
               <v-text-field
                 name="location"
-                label="Location"
+                label="Место проведения"
                 id="location"
                 v-model="location"
                 required>
@@ -32,7 +32,7 @@
           </v-layout>
           <v-layout row>
             <v-flex>
-              <v-btn raised class="primary" @click="onPickFile">Upload Image</v-btn>
+              <v-btn raised class="primary" @click="onPickFile">Загрузить изображение</v-btn>
               <input
                 type="file"
                 class="hidden-lg-and-down"
@@ -50,7 +50,7 @@
             <v-flex>
               <v-text-field
                 name="description"
-                label="Description"
+                label="Описание"
                 id="description"
                 multi-line
                 v-model="description"
@@ -58,19 +58,19 @@
               </v-text-field>
             </v-flex>
           </v-layout>
-          <v-layout row>
+          <v-layout row class="mb-4">
             <v-flex xs12 sm8 offset-sm2>
-              <h4>Choose Date & Time</h4>
+              <h4>Выберите дату и время</h4>
             </v-flex>
           </v-layout>
-          <v-layout row wrap class="md-5">
-            <v-flex md12 lg8>
-              <v-date-picker v-model="date"></v-date-picker>
+          <v-layout row wrap class="md-5 mb-4">
+            <v-flex md6 lg6>
+              <v-date-picker v-model="date" landscape></v-date-picker>
             </v-flex>
           </v-layout>
-          <v-layout row wrap>
-            <v-flex md12 lg8>
-              <v-time-picker v-model="time" format="24hr"></v-time-picker>
+          <v-layout row wrap class="mb-4">
+            <v-flex md6 lg6>
+              <v-time-picker v-model="time" format="24hr" landscape></v-time-picker>
             </v-flex>
           </v-layout>
           <v-layout row>
@@ -78,7 +78,7 @@
               <v-btn
                 class="primary"
                 :disabled="!formIsValid"
-                type="submit">Create Meetup
+                type="submit">Создать мероприятие
               </v-btn>
             </v-flex>
           </v-layout>

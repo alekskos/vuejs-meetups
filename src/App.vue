@@ -71,7 +71,7 @@
     computed: {
       menuItems () {
         let menuItems = [
-          {icon: 'person_add', title: 'Регистрация', link: '/signup', alt: 'Регистрация на сайте'},
+          {icon: 'person_add', title: 'Зарегистрироваться', link: '/signup', alt: 'Зарегистрироваться на сайте'},
           {icon: 'lock_open', title: 'Войти', link: '/signin'}
         ]
         if (this.userIsAuthenficated) {
