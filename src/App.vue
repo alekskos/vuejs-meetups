@@ -3,12 +3,14 @@
     <v-navigation-drawer
       temporary
       absolute
-      v-model="sideNav">
+      v-model="sideNav"
+      role="navigation">
       <v-list>
         <v-list-tile
           v-for="item in menuItems"
           :key="item.title"
-          :to="item.link">
+          :to="item.link"
+          tabindex="0">
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -24,7 +26,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar dark class="info">
+    <v-toolbar dark class="info" role="navigation">
       <v-toolbar-side-icon
         class="hidden-sm-and-up"
         @click.stop="sideNav = !sideNav"></v-toolbar-side-icon>
@@ -42,7 +44,8 @@
           flat
           v-for="item in menuItems"
           :key="item.title"
-          :to="item.link">
+          :to="item.link"
+          tabindex="0">
           <v-icon left dark>{{ item.icon }}</v-icon>
           {{ item.title }}
         </v-btn>
@@ -55,7 +58,7 @@
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    <main>
+    <main id="main" role="main">
       <router-view></router-view>
     </main>
   </v-app>

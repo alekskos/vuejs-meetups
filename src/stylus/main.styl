@@ -13,6 +13,11 @@ $theme := {
 
 @import '../../node_modules/vuetify/src/stylus/main'
 
+*:focus
+  outline-color: -webkit-focus-ring-color
+  outline-style: auto
+  outline-width: 5px
+
 html,body,.application
   font-family: Montserrat, 'Roboto', sans-serif
   font-size: 18px
@@ -24,6 +29,21 @@ html,body,.application
 .custom-loader
   animation: loader 1s infinite
   display: flex
+
+.visuallyHidden:not(:focus):not(:active)
+  position: absolute
+  width: 1px
+  height: 1px
+  margin: -1px
+  border: 0
+  padding: 0
+  white-space: nowrap
+  clip-path: inset(100%)
+  clip: rect(0 0 0 0)
+  overflow: hidden
+
+.carousel__controls
+  height: 30px
 
 @-moz-keyframes loader {
   from {
@@ -57,3 +77,10 @@ html,body,.application
     transform: rotate(360deg);
   }
 }
+footer
+  height: 8vw
+  //background: #424242
+  color: white
+  display: flex
+  align-items: center
+  padding-left: 30px
