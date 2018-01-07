@@ -32,7 +32,7 @@
         @click.stop="sideNav = !sideNav"></v-toolbar-side-icon>
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor: pointer">
-          <picture title="На главную">
+          <picture title="На главную" tabindex="0">
             <source srcset="../static/logo_MU.svg" type="image/svg+xml">
             <img srcset="../static/logo_MU.png 1x ../static/logo_MU@2.png 2x" alt="Логотип">
           </picture>

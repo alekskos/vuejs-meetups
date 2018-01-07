@@ -20,7 +20,7 @@
     </v-layout>
     <v-layout row wrap class="mt-3" v-if="!loading">
       <v-flex xs12>
-        <v-carousel style="cursor: pointer;">
+        <v-carousel role="region" aria-label="gallery" tabindex="0" style="cursor: pointer;">
           <v-carousel-item
             v-for="meetup in meetups"
             :src="meetup.imageUrl"
