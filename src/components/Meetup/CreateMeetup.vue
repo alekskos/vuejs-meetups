@@ -12,9 +12,10 @@
             <v-flex>
               <v-text-field
                 name="title"
-                label="Название"
+                label="Название мероприятия"
                 id="title"
                 v-model="title"
+                aria-describedby="title"
                 required>
               </v-text-field>
             </v-flex>
@@ -26,6 +27,7 @@
                 label="Место проведения"
                 id="location"
                 v-model="location"
+                aria-describedby="location"
                 required>
               </v-text-field>
             </v-flex>
@@ -54,6 +56,7 @@
                 id="description"
                 multi-line
                 v-model="description"
+                aria-describedby="description"
                 required>
               </v-text-field>
             </v-flex>
@@ -65,12 +68,21 @@
           </v-layout>
           <v-layout row wrap class="md-5 mb-4">
             <v-flex md6 lg6>
-              <v-date-picker v-model="date" landscape></v-date-picker>
+              <v-date-picker
+                v-model="date"
+                id="date"
+                aria-describedby="date"
+                landscape></v-date-picker>
             </v-flex>
           </v-layout>
           <v-layout row wrap class="mb-4">
             <v-flex md6 lg6>
-              <v-time-picker v-model="time" format="24hr" landscape></v-time-picker>
+              <v-time-picker
+                v-model="time"
+                format="24hr"
+                id="time"
+                aria-describedby="time"
+                landscape></v-time-picker>
             </v-flex>
           </v-layout>
           <v-layout row>

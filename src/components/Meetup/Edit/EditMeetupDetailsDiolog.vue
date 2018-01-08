@@ -24,7 +24,7 @@
               <v-text-field
                 name="location"
                 label="Место проведения"
-                id="title"
+                id="location"
                 v-model="editedLocation"
                 required>
               </v-text-field>
@@ -42,8 +42,16 @@
         <v-layout row wrap>
           <v-flex xs12>
             <v-card-actions>
-              <v-btn flat class="blue--text darken-1" @click="editDialog = !editDialog">Закрыть</v-btn>
-              <v-btn flat class="blue--text darken-1" @click="onSaveChanges">Сохранить</v-btn>
+              <v-btn
+                flat
+                class="red--text darken-1"
+                @click="editDialog = !editDialog"
+                tabindex="0">Закрыть</v-btn>
+              <v-btn
+                flat
+                class="blue--text darken-1"
+                @click="onSaveChanges"
+                tabindex="0">Сохранить</v-btn>
             </v-card-actions>
           </v-flex>
         </v-layout>
@@ -79,3 +87,9 @@
     }
   }
 </script>
+<style scoped>
+  /**:focus {*/
+    /*outline: 2px solid DodgerBlue;*/
+    /*outline-offset: -1px;*/
+  /*}*/
+</style>
