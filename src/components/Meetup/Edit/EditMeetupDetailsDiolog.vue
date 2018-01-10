@@ -46,12 +46,14 @@
                 flat
                 class="red--text darken-1"
                 @click="editDialog = !editDialog"
-                tabindex="0">Закрыть</v-btn>
+                tabindex="0">Закрыть
+              </v-btn>
               <v-btn
                 flat
                 class="blue--text darken-1"
                 @click="onSaveChanges"
-                tabindex="0">Сохранить</v-btn>
+                tabindex="0">Сохранить
+              </v-btn>
             </v-card-actions>
           </v-flex>
         </v-layout>
@@ -87,9 +89,8 @@
     }
   }
 </script>
-<style scoped>
-  /**:focus {*/
-    /*outline: 2px solid DodgerBlue;*/
-    /*outline-offset: -1px;*/
-  /*}*/
+<style scoped lang="stylus">
+  *:focus
+    outline: 2px solid DodgerBlue
+    outline-offset: -1px
 </style>

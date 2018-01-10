@@ -71,6 +71,7 @@
               <v-date-picker
                 v-model="date"
                 id="date"
+                locale="ru-RU"
                 aria-describedby="date"
                 landscape></v-date-picker>
             </v-flex>

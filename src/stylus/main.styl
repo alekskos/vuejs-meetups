@@ -29,8 +29,13 @@ html,body,.application
 .custom-loader
   animation: loader 1s infinite
   display: flex
+.visuallyHidden:focus
+  /* Remove item from normal flow */
+  position: absolute;
+  top: 8px;
+  left: 8px;
 
-.visuallyHidden:not(:focus):not(:active)
+.visuallyHidden:not(:focus)
   position: absolute
   width: 1px
   height: 1px

@@ -18,7 +18,7 @@
           v-if="loading"></v-progress-circular>
       </v-flex>
     </v-layout>
-    <v-layout row wrap class="mt-3" v-if="!loading">
+    <v-layout row wrap class="mt-2" v-if="!loading">
       <v-flex xs12>
         <v-carousel role="region" aria-label="gallery" tabindex="0" style="cursor: pointer;">
           <v-carousel-item
@@ -33,7 +33,7 @@
         </v-carousel>
       </v-flex>
     </v-layout>
-    <v-layout row wrap  class="mt-2">
+    <v-layout row wrap class="mt-2">
       <v-flex xs12 class="text-xs-center">
         <h3 class="headline">Присоединяйтесь к нашим удивительным встречам!</h3>
       </v-flex>

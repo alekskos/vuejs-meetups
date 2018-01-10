@@ -20,6 +20,8 @@
                       v-model="email"
                       type="email"
                       autofocus
+                      aria-required="true"
+                      aria-invalid="true"
                       required></v-text-field>
                   </v-flex>
                 </v-layout>
@@ -31,6 +33,8 @@
                       id="password"
                       v-model="password"
                       type="password"
+                      aria-required="true"
+                      aria-invalid="true"
                       required></v-text-field>
                   </v-flex>
                 </v-layout>

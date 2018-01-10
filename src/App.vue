@@ -31,10 +31,10 @@
         class="hidden-sm-and-up"
         @click.stop="sideNav = !sideNav"></v-toolbar-side-icon>
       <v-toolbar-title>
-        <router-link to="/" tag="span" style="cursor: pointer">
+        <router-link to="/" tag="span" style="cursor: pointer" role="banner">
           <picture title="На главную" tabindex="0">
             <source srcset="../static/logo_MU.svg" type="image/svg+xml">
-            <img srcset="../static/logo_MU.png 1x ../static/logo_MU@2.png 2x" alt="Логотип">
+            <img srcset="../static/logo_MU.png 1x ../static/logo_MU@2.png 2x" alt="Логотип MeetUps">
           </picture>
         </router-link>
       </v-toolbar-title>
@@ -74,7 +74,7 @@
     computed: {
       menuItems () {
         let menuItems = [
-          {icon: 'person_add', title: 'Зарегистрироваться', link: '/signup', alt: 'Зарегистрироваться на сайте'},
+          {icon: 'person_add', title: 'Зарегистрироваться', link: '/signup'},
           {icon: 'lock_open', title: 'Войти', link: '/signin'}
         ]
         if (this.userIsAuthenficated) {
@@ -100,8 +100,7 @@
 
 <style lang="stylus">
   @import './stylus/main'
-  picture img {
-    width: 3em;
-    margin-top: 0.35em;
-  }
+  picture img
+    width: 3em
+    margin-top: 0.35em
 </style>
