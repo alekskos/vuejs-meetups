@@ -26,7 +26,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar dark class="info" role="navigation">
+    <v-toolbar dark class="indigo darken-4" role="navigation">
       <v-toolbar-side-icon
         class="hidden-sm-and-up"
         @click.stop="sideNav = !sideNav"></v-toolbar-side-icon>
@@ -34,7 +34,8 @@
         <router-link to="/" tag="span" style="cursor: pointer" role="banner">
           <picture title="На главную" tabindex="0">
             <source srcset="../static/logo_MU.svg" type="image/svg+xml">
-            <img srcset="../static/logo_MU.png 1x ../static/logo_MU@2.png 2x" alt="Логотип MeetUps">
+            <source srcset="../static/logo_MU.png 1x ../static/logo_MU@2.png 2x" type="image/png">
+            <img src="../static/logo_MU.png" alt="Логотип MeetUps">
           </picture>
         </router-link>
       </v-toolbar-title>

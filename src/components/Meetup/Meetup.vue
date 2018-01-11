@@ -28,12 +28,12 @@
             <h5 class="title warning--text">
               {{ meetup.date | date }} &mdash; {{ meetup.location }}
             </h5>
-            <div>
-              <app-edit-meetup-date-dialog
-                :meetup="meetup"
-                v-if="userIsCreator">
-              </app-edit-meetup-date-dialog>
-            </div>
+            <!--<div>-->
+              <!--<app-edit-meetup-date-dialog-->
+                <!--:meetup="meetup"-->
+                <!--v-if="userIsCreator">-->
+              <!--</app-edit-meetup-date-dialog>-->
+            <!--</div>-->
             <p class="body-1 mt-3">{{ meetup.description }}</p>
           </v-card-text>
           <v-card-actions v-if="!userIsCreator">

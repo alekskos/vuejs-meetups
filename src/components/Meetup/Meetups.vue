@@ -29,7 +29,7 @@
               <v-flex xs7 sm8 md9>
                 <v-card-title primary-title>
                   <div>
-                    <h4 class="white--text mb-0">{{ meetup.title }}</h4>
+                    <h3 class="black--text mb-0">{{ meetup.title }}</h3>
                     <div>{{ meetup.date | date }}</div>
                   </div>
                 </v-card-title>

@@ -5,22 +5,23 @@ $theme := {
   primary: $red.darken-2
   accent: $red.accent-2
   secondary: $grey.lighten-1
-  info: $blue.darken-2
+  info: $indigo.darken-4
   warning: $amber.darken-2
   error: $red.accent-4
-  success: $green.lighten-2
+  success: $green.darken-1
 }
 
 @import '../../node_modules/vuetify/src/stylus/main'
 
-*:focus
+*:focus,*:active
   outline-color: -webkit-focus-ring-color
   outline-style: auto
   outline-width: 5px
 
 html,body,.application
   font-family: Montserrat, 'Roboto', sans-serif
-  font-size: 18px
+  font-size: 20px
+  background: black
 .toolbar-logo
   width: 90px
   padding-top: (@width / 3)
