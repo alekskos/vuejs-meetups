@@ -31,8 +31,8 @@
         class="hidden-sm-and-up"
         @click.stop="sideNav = !sideNav"></v-toolbar-side-icon>
       <v-toolbar-title>
-        <router-link to="/" tag="span" style="cursor: pointer" role="banner">
-          <picture title="На главную" tabindex="0">
+        <router-link to="/" style="cursor: pointer" role="banner">
+          <picture title="На главную" tabindex="0" @keyup.enter="home">
             <source srcset="../static/logo_MU.svg" type="image/svg+xml">
             <source srcset="../static/logo_MU.png 1x ../static/logo_MU@2.png 2x" type="image/png">
             <img src="../static/logo_MU.png" alt="Логотип MeetUps">
@@ -94,6 +94,9 @@
     methods: {
       onLogout () {
         this.$store.dispatch('logout')
+      },
+      home () {
+        this.$router.push({ path: '/' })
       }
     }
   }
